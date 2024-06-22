@@ -122,6 +122,13 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.container_attempts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
 /* Animaciones */
 @keyframes shakeHandPlayer {
   0% {

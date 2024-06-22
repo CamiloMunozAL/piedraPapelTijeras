@@ -2,6 +2,9 @@
 let pointsPlayer = 0; // Puntos del jugador
 let pointsComputer = 0; // Puntos de la computadora
 let attempts = 3; // Intentos
+let losesPlayer = 0;
+let losesComputer = 0;
+let ties = 0;
 
 // DOM elementos
 let containerPlayerPoints = document.querySelector(".player_points"); // Puntos del jugador
@@ -15,6 +18,9 @@ let selectionPlayer = imgPlayerHand.nextElementSibling; // Selección del jugado
 let imgComputerHand = document.getElementById("computer_hand_image"); // Imagen de la mano de la computadora
 let selectionComputer = imgComputerHand.nextElementSibling; // Selección de la computadora
 let buttonsOptions = document.querySelectorAll(".option"); // Botones de opciones del jugador retornados en un NodeList
+let derrotasJugador = document.getElementById("p_loses_player");
+let derrotasComputador = document.getElementById("p_loses_computer");
+let tiesParagraph = document.getElementById("p_ties");
 
 buttonsOptions.forEach((button) => {
   button.addEventListener("click", startAttempt); // Agregamos un evento click a cada botón
@@ -124,6 +130,13 @@ function startAttempt(event) {
   setTimeout(() => {
     let winner = compareOptions(optionPlayer, optionComputer); // Obtenemos el ganador del intento
     console.log(winner);
+    if (winner === "player") {
+      addLosesComputer();
+    } else if (winner === "computer") {
+      addLosesPlayer();
+    } else {
+      addTies();
+    }
     changeHandsImages(optionPlayer, optionComputer); // Cambiamos las imágenes de las manos
     updatePoints(winner); // Actualizamos los puntos
     whoIsWinning(); // Mostramos quien va ganando
@@ -164,4 +177,21 @@ function checkWinnerFinish() {
 //funcion que reinicia el juego
 function restartGame() {
   window.location.reload();
+}
+
+//funcion aumenta las derrotas del jugador
+function addLosesPlayer() {
+  losesPlayer++;
+  derrotasJugador.textContent = `Derrotas: ${losesPlayer}`;
+}
+
+//funcion aumenta las derrotas del computador
+function addLosesComputer() {
+  losesComputer++;
+  derrotasComputador.textContent = `Derrotas: ${losesComputer}`;
+}
+
+function addTies() {
+  ties++;
+  tiesParagraph.textContent = `Empates: ${ties}`;
 }
