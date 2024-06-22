@@ -1,0 +1,169 @@
+/* Reset y configuración global */
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playwrite DE Grund", sans-serif;
+}
+
+/* Variables globales */
+:root {
+  --color-1: #dff7f8;
+  --color-2: #82fdb1;
+  --color-3: rgb(186, 252, 246);
+}
+
+/* Estilos generales del cuerpo */
+body {
+  background-color: var(--color-1);
+}
+
+/* Estilos de la cabecera */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-2);
+  padding: 1.5rem;
+}
+
+/* Estilos del contenido principal */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Contenedor del marcador */
+.container_score {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-3);
+  font-size: 1.5rem;
+  width: 80%;
+  border-radius: 15px;
+}
+
+/* Contenedor de las manos */
+.container_hands {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos de las manos */
+.hand {
+  min-width: 100px;
+}
+
+/* Estilos de las imágenes */
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* Estilo específico para la mano del jugador */
+.player_hand img {
+  transform: scaleX(-1);
+}
+
+/* Estilos de las opciones */
+.option {
+  width: 32%;
+  max-width: 100px;
+}
+
+/* Estilos de los botones */
+button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: var(--color-2);
+}
+
+button:hover {
+  background-color: var(--color-3);
+  transform: scale(1.2);
+}
+
+/* Contenedores adicionales */
+.container_input,
+.container_window_win {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.container_window_win {
+  display: none;
+}
+
+/* Estilos específicos para los contenedores internos */
+.container_input div,
+.window_win {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Animaciones */
+@keyframes shakeHandPlayer {
+  0% {
+    transform: scaleX(-1) rotate(0deg);
+  }
+  25% {
+    transform: scaleX(-1) rotate(10deg);
+  }
+  50% {
+    transform: scaleX(-1) rotate(-10deg);
+  }
+  75% {
+    transform: scaleX(-1) rotate(10deg);
+  }
+  100% {
+    transform: scaleX(-1) rotate(-10deg);
+  }
+}
+
+@keyframes shakeHandComputer {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+/* Estilos de animación */
+.shake_player {
+  animation: shakeHandPlayer 2s infinite;
+}
+
+.shake_computer {
+  animation: shakeHandComputer 2s infinite;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="title">Piedra, papel o tijera</h1>
+    </header>
+    <main class="main">
+      <div class="container_winner">
+        <h3 class="title_winner">Quien va Ganando?</h3>
+      </div>
+      <div class="container_score">
+        <span class="material-symbols-outlined"> person </span>
+        <div class="score">
+          <span class="player_points">0</span>
+          <span>-</span>
+          <span class="computer_points">0</span>
+        </div>
+        <span class="material-symbols-outlined"> computer </span>
+      </div>
+      <div class="container_attempts">
+        <p id="p_attempts">Intentos:</p>
+      </div>
+      <div class="container_hands">
+        <div class="player_hand hand">
+          <img
+            id="player_hand_image"
+            src="./assets/rock.png"
+            alt="imagen de la mano del jugador"
+          />
+          <p>Jugador</p>
+        </div>
+        <div class="computer_hand hand">
+          <img
+            id="computer_hand_image"
+            src="./assets/rock.png"
+            alt="imagen de la mano de la computadora"
+          />
+          <p>Computador</p>
+        </div>
+      </div>
+      <div class="container_options">
+        <h2>Elige una opción</h2>
+        <div class="options">
+          <button class="option" id="rock">
+            <img src="./assets/rock.png" alt="piedra" />
+          </button>
+          <button class="option" id="paper">
+            <img src="./assets/paper.png" alt="papel" />
+          </button>
+          <button class="option" id="scissors">
+            <img src="./assets/scissors.png" alt="tijeras" />
+          </button>
+        </div>
+      </div>
+      <div class="container_settings">
+        <button onclick="restartGame()">
+          <span class="material-symbols-outlined"> replay </span>
+        </button>
+      </div>
+    </main>
+    <div class="container_input">
+      <div class="">
+        <p>Numero de intentos:</p>
+        <input type="number" id="attempts" required min="1" />
+        <button id="start" onclick="getAttempts()">Empezar</button>
+      </div>
+    </div>
+    <div class="container_window_win">
+      <div class="window_win">
+        <h2 class="title_win">Ganaste!</h2>
+        <button class="button_win" onclick="restartGame()">
+          Volver a jugar
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
